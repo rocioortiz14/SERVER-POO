@@ -1,6 +1,6 @@
 const { response, request } = require("express");
-const allowedCollections = ["user", "category", "role", "product"];
-const { User, Product, Role, Category } = require("../models");
+const allowedCollections = ["user", "category", "role", "product", "invoice"]; /*definir arrays con colleciones definidad*/
+const { User, Product, Role, Category, Invoice } = require("../models");
 
 const { ObjectId } = require("mongoose").Types;
 
@@ -18,6 +18,17 @@ const findUsers = async (term = "", res = response) => {
   return res.json({ results: users });
 };
 
+
+const finInvoices = async (term = "", res = response) => { /*buscar facturas en la base de datos de acuerdo a un término de búsqueda*/
+  const isMongoId = ObjectId.isValid(term); /*verifica si el término de búsqueda es un ObjectId válido */
+  if(isMongoId){
+    const invoice = await Invoice.findById(term);/*ObjectID valido buscA en la BD y envio un objeto JSON*/
+    return res.json({ results: invoice ? [invoice] : []});
+  }
+  const regex = new RegExp(term, "i"); /*búsqueda sea independiente de si las letras son mayúsculas o minúsculas.*/
+  const invoices = await  Invoice.find({ user: regex, total: regex }); /*facturas que contengan el término de búsqueda en el campo "user" o "total"*/
+  return res.json({results: invoices}); /*respuesta JSON*/
+};
 const findCategories = async (term = "", res = response) => {
   const isMongoId = ObjectId.isValid(term);
   if (isMongoId) {
@@ -60,6 +71,9 @@ const find = (req, res = response) => {
       break;
     case "category":
       findCategories(term, res);
+      break;  
+    case "invoice": 
+      finInvoices(term, res);
       break;
     case "role":
       break;

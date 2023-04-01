@@ -42,6 +42,7 @@ const createProduct = async (req, res = response) => {
     ...body,
     name: body.name.toUpperCase(),
     user: req.user._id,
+    precio: body.precio,
   };
 
   const product = new Product(data);
