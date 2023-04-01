@@ -1,0 +1,687 @@
+{
+	"info": {
+		"_postman_id": "ea49901f-8933-4a4b-bcd7-27866efe6996",
+		"name": "UNIVO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12775591"
+	},
+	"item": [
+		{
+			"name": "POO Server",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "Auth Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"test@google.com\",\n    \"password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3030/api/auth/login",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "User Post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"test 10\",\n    \"email\": \"test10@google.com\",\n    \"google\": true,\n    \"password\": \"123456\",\n    \"role\": \"USER_ROLE\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Put",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"test updated ddddddd\",\n    \"email\": \"testdawsssss@google.com\",\n    \"password\": \"123456ddd\",\n    \"role\": \"SUPER_ROLE\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/users/63e46b5d919be85552108450",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"63e46b5d919be85552108450"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3030/api/users?limit=3&from=0",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"api",
+										"users"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "3"
+										},
+										{
+											"key": "from",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "x-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2U2YjlkZjBmMmFkZDk4ZTQwNjYxZjUiLCJpYXQiOjE2NzYxNDc3MDIsImV4cCI6MTY3NjE2MjEwMn0.uGGB92V6T3EsLXePQNLW7zw3ZIuDaFpEa_x93IqReOY",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/users/63e80eccb6d1f9229291de91",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"63e80eccb6d1f9229291de91"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Categories",
+					"item": [
+						{
+							"name": "Categories  Put",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2U2YjlkZjBmMmFkZDk4ZTQwNjYxZjUiLCJpYXQiOjE2NzYyNTkwMjEsImV4cCI6MTY3NjI3MzQyMX0.qfPKq6vgB8Nc98bJLYZoIwGsmyaxEqU0Zko_TMlrTMc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"names\": \"Orders\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/categories/63e834904b89fbf10fd69820",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"categories",
+										"63e834904b89fbf10fd69820"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Categories  Get by Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/categories/63e834904b89fbf10fd69820",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"categories",
+										"63e834904b89fbf10fd69820"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Categories  Get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/categories/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"categories",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Categories  Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/categories/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"categories",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Categories  Post",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2U2YjlkZjBmMmFkZDk4ZTQwNjYxZjUiLCJpYXQiOjE2NzYxNjIxNzgsImV4cCI6MTY3NjE3NjU3OH0.f0MVGBn6GhIN-w1H980l8oH-igj5GFBbVhWu2lMLqdU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Sales\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/categories",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Products",
+					"item": [
+						{
+							"name": "Product  Put",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/products/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"products",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Products  Get by Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/products/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"products",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Products  Get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/products/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"products",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Products  Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/products/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"products",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Products  Post",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDIzOWViOTMxMTg0Njk5NDhhOGU2MDIiLCJpYXQiOjE2ODAyMjkwODksImV4cCI6MTY4MDI0MzQ4OX0.jRLYxqZq3p-Vt6sWY6WQXXQKzkqKzb-xe4_d_cjX5MQ",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Guinellos\",\n    \"category\": \"64251b74c542e2de6312816f\",\n    \"Precio\" : 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3030/api/products",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Find",
+					"item": [
+						{
+							"name": "Find",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Upload",
+					"item": [
+						{
+							"name": "Upload File",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/Users/erwin_vides/Downloads/Factura.pdf"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/uploads",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"uploads"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update User File",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/Users/erwin_vides/Downloads/udemy invoice.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/uploads/users/63e46b5d919be85552108450",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"uploads",
+										"users",
+										"63e46b5d919be85552108450"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Products File",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/Users/erwin_vides/Downloads/udemy invoice.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/uploads/users/63e46b5d919be85552108450",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"uploads",
+										"users",
+										"63e46b5d919be85552108450"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Products File",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/Users/erwin_vides/Downloads/udemy invoice.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/uploads/users/63e46b5d919be85552108450",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"uploads",
+										"users",
+										"63e46b5d919be85552108450"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Invoice",
+					"item": [
+						{
+							"name": "Invoice POST",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user\": \"642107694173be39ea6bc7bb\",\r\n}"
+								},
+								"url": {
+									"raw": "localhost:3030/api/invoice",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"api",
+										"invoice"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Invoice GET",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "Invoice PUT",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2U2YjlkZjBmMmFkZDk4ZTQwNjYxZjUiLCJpYXQiOjE2NzYyNTkwMjEsImV4cCI6MTY3NjI3MzQyMX0.qfPKq6vgB8Nc98bJLYZoIwGsmyaxEqU0Zko_TMlrTMc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"names\": \"Orders\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/categories/63e834904b89fbf10fd69820",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"categories",
+										"63e834904b89fbf10fd69820"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Invoices Get by Id",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DetailInvoices",
+					"item": [
+						{
+							"name": "DetailInvoice POST",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDIzOWViOTMxMTg0Njk5NDhhOGU2MDIiLCJpYXQiOjE2ODAxNDgzMDksImV4cCI6MTY4MDE2MjcwOX0.nGq75LhGjbFzKuqFB_HBcl7EZQv_Dw5nJTQA1ewjod4",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"product\" : \"6421164b7c0266351570e155\",\r\n    \"invoice\" : \"6423a19c2186879f1d75e215\",\r\n    \"productUnit\" : 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3030/api/detailInvoices",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"api",
+										"detailInvoices"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DetailInvoice GET",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "DetailInvoice Get by Id",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "DetailInvoice PUT",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
